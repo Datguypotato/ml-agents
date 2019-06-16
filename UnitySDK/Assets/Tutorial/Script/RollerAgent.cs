@@ -54,13 +54,14 @@ public class RollerAgent : Agent {
         //got to the cube
         if(distance < 1.42f)
         {
-            SetReward(1);
+            SetReward(5);
             Done();
         }
 
         if(this.transform.position.y < 0)
         {
             Done();
+            SetReward(-1);
         }
     }
 }
