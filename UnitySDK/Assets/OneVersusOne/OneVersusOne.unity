@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooter: {fileID: 154746944}
-  speed: 5
+  speed: 15
 --- !u!23 &818155741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1055,7 +1055,7 @@ MonoBehaviour:
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   size: 8
-  speed: 15
+  speed: 20
   floorOffset: {fileID: 0}
   shooter: {fileID: 154746944}
   bulletTransform: {fileID: 1996339655}
