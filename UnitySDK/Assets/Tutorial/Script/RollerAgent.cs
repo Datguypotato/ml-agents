@@ -32,7 +32,7 @@ public class RollerAgent : Agent {
 
     public override void CollectObservations()
     {
-        //remembers the target pos en it owns
+        //remembers the target pos en his owns
         AddVectorObs(target.position);
         AddVectorObs(this.transform.position);
 

@@ -11,12 +11,13 @@ public class Shooter : MonoBehaviour
     public GameObject bulletShot;
     public GameObject agentObject;
 
+    [Space(5)]
     public ShooterAgent agent;
 
 	// Use this for initialization
 	void Start () 
 	{
-		
+        Invoke("Shoot", 1);
 	}
 	
 	// Update is called once per frame
@@ -25,9 +26,14 @@ public class Shooter : MonoBehaviour
         transform.LookAt(agentObject.transform);
 
 
-		if(agent.IsDone() == true)
-        {
-
-        }
+		//if(agent.IsDone() == true)
+  //      {
+  //          bulletShot = Instantiate(bulletPrefab, transform.position, transform.rotation);
+  //      }
 	}
+
+    void Shoot()
+    {
+        bulletShot = Instantiate(bulletPrefab, transform.position, transform.rotation);
+    }
 }
