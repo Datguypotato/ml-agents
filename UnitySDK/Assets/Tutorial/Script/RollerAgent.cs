@@ -28,6 +28,8 @@ public class RollerAgent : Agent {
         }
 
         target.position = new Vector3(Random.Range(-4, 4), 0.5f, Random.Range(-4, 4)) + floorOffset.position;
+
+        
     }
 
     public override void CollectObservations()

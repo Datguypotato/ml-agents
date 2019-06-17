@@ -7,13 +7,15 @@ using UnityEngine;
 
 public class ShooterAgent : Agent
 {
-
+    public float size = 8;
     public float speed = 4;
 
     public Transform floorOffset;
     public Shooter shooter;
 
-    //Transform bulletTransform;
+    public Transform bulletTransform;
+
+    bool reset;
 
     private void Start()
     {
@@ -24,15 +26,18 @@ public class ShooterAgent : Agent
     {
         //reset posistion
 
-        transform.position = new Vector3(Random.Range(-23, 23), 0.5f, Random.Range(-23, 23));
-        shooter.transform.position = new Vector3(Random.Range(-23, 23), 0.5f, Random.Range(-23, 23));
+        transform.position = new Vector3(Random.Range(-size, size), 0.5f, Random.Range(-size, size));
+        shooter.transform.position = new Vector3(Random.Range(-size, size), 0.5f, Random.Range(-size, size));
+
+        shooter.ResetBullet();
+        //shooter.ShootBullet();
     }
 
     public override void CollectObservations()
     {
         AddVectorObs(this.transform.position);
+        AddVectorObs(bulletTransform.position);
 
-        //AddVectorObs(bulletTransform.position);
         AddVectorObs(shooter.transform.position);
     }
 
@@ -44,18 +49,12 @@ public class ShooterAgent : Agent
 
         transform.Translate(controlSignal * Time.deltaTime * speed);
 
-        //float distance = Vector3.Distance(transform.position, shooter.bulletShot.transform.position);
-
-        //if(distance < .8f)
-        //{
-        //    SetReward(-1);
-        //    Done();
-        //}
+        float distance = Vector3.Distance(transform.position, shooter.bulletShot.transform.position);
 
     }
 
     private void Update()
     {
-        //Debug.Log(Vector3.Distance(transform.position, shooter.bulletShot.transform.position));
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -size, size), 0.5f, Mathf.Clamp(transform.position.z, -size, size));
     }
 }
