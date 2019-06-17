@@ -30,7 +30,7 @@ public class Shooter : MonoBehaviour
         bulletpos = bulletShot.transform.position;
         if (bulletpos.x < -size || bulletpos.x > size || bulletpos.z < -size || bulletpos.z > size)
         {
-            ResetBullet();
+            ShootBullet();
         }
 
 
@@ -44,9 +44,8 @@ public class Shooter : MonoBehaviour
 
     public void ResetBullet()
     {
-        transform.LookAt(agentObject.transform);
-        bulletShot.transform.position = transform.position;
-        bulletShot.transform.rotation = transform.rotation;
+        ShootBullet();
+
         if (hit)
         {
             hit = false;
@@ -60,7 +59,9 @@ public class Shooter : MonoBehaviour
 
     public void ShootBullet()
     {
-        bulletShot.transform.parent = null;
+        transform.LookAt(agentObject.transform);
+        bulletShot.transform.position = transform.position;
+        bulletShot.transform.rotation = transform.rotation;
     }
 
     //public IEnumerator Shooting()
