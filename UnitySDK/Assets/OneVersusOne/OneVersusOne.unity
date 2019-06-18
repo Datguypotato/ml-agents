@@ -247,18 +247,19 @@ MonoBehaviour:
     broadcastingBrains:
     - {fileID: 11400000, guid: fd2e332b7f179ce4ab69eb3327d95ac1, type: 2}
     - {fileID: 11400000, guid: 42991b5b607c2a34898b5f96f55f0ab4, type: 2}
-    _brainsToControl: []
+    _brainsToControl:
+    - {fileID: 11400000, guid: 42991b5b607c2a34898b5f96f55f0ab4, type: 2}
   maxSteps: 0
   trainingConfiguration:
     width: 80
     height: 80
-    qualityLevel: 1
+    qualityLevel: 0
     timeScale: 50
     targetFrameRate: -1
   inferenceConfiguration:
     width: 1280
     height: 720
-    qualityLevel: 5
+    qualityLevel: 1
     timeScale: 1
     targetFrameRate: 60
   resetParameters:

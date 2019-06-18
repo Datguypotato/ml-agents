@@ -30,7 +30,7 @@ public class Shooter : MonoBehaviour
         bulletpos = bulletShot.transform.position;
         if (bulletpos.x < -size || bulletpos.x > size || bulletpos.z < -size || bulletpos.z > size)
         {
-            ShootBullet();
+            ResetBullet();
         }
 
 
