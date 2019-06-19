@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("agent"))
+        if (other.CompareTag("agent") && shooter != null)
         {
             shooter.agent.SetReward(-1);
             shooter.hit = true;

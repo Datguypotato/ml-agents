@@ -13,6 +13,9 @@ public class SingleJoystickPlayerController : MonoBehaviour
 
     public Animator animator; // The animator for the toon. 
     public Transform target;
+    public GameObject bulletPrefab;
+
+    float shootCDN = 0;
 
     // Use this for initialization
     void Start()
@@ -95,5 +98,14 @@ public class SingleJoystickPlayerController : MonoBehaviour
 
     //        rigidBody.transform.Translate(input01 * Time.fixedDeltaTime);
     //    }
+    }
+
+    public void Shoot()
+    {
+        if(shootCDN < Time.time)
+        {
+            shootCDN += 3;
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
+        }
     }
 }
