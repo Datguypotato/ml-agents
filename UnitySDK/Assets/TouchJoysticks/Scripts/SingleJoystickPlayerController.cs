@@ -43,8 +43,9 @@ public class SingleJoystickPlayerController : MonoBehaviour
     void Update()
     {
         input01 = singleJoystick.GetInputDirection();
+        transform.rotation = new Quaternion(0, 0, 0, 0);
 
-        transform.Translate(new Vector3(input01.x, 0, input01.y));
+        transform.Translate(new Vector3(input01.x, 0, input01.y) * Time.deltaTime * moveSpeed);
         if(target != null)
         {
             transform.LookAt(target);
@@ -104,7 +105,7 @@ public class SingleJoystickPlayerController : MonoBehaviour
     {
         if(shootCDN < Time.time)
         {
-            shootCDN += 3;
+            shootCDN += Time.time + .5;
             Instantiate(bulletPrefab, transform.position, transform.rotation);
         }
     }
